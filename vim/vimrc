@@ -1,0 +1,153 @@
+"======================================
+" my VIMRC
+"======================================
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+
+
+"======================================
+" vundle
+"======================================
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'jnurmine/Zenburn'
+Bundle 'altercation/vim-colors-solarized'
+
+call vundle#end()
+
+"======================================
+" colors
+"======================================
+syntax enable
+let python_highlight_all=1
+
+"colorscheme zenburn
+
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
+
+"======================================
+"
+"======================================
+filetype plugin indent on
+let mapleader = "\<Space>"
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+set encoding=utf-8
+set nu
+set scrolloff=3
+set autoindent
+set showmode
+set showcmd
+set hidden
+set wildmenu
+set wildmode=list:longest
+set visualbell
+set cursorline
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+set laststatus=2
+"set undofile
+
+
+
+"nnoremap / /\v
+"vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
+
+
+
+set wrap
+set textwidth=79
+"set formatoptions=qrn1
+"set colorcolumn=90
+
+"set list
+"set listchars=tab:▸\ ,eol:¬
+
+"======================================
+" netrw
+"======================================
+let g:netrw_liststyle = 3 
+let g:netrw_banner = 0
+
+
+nnoremap <leader>e :e .<CR>
+
+"Open netrw in a vertical split
+nnoremap <Leader>v :vs .<CR>
+""Open netrw in a horizontal split
+nnoremap <Leader>s :sp .<CR>
+
+
+
+"let g:netrw_winsize = 16 
+"let g:netrw_browse_split = 4
+"let g:netrw_altv = 1
+
+
+
+"======================================
+" edit .vimrc
+"======================================
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+"======================================
+" my Mappings
+"======================================
+nnoremap <leader> viw<esc>a"<esc>bi"<esc>lel
+nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
+vnoremap <leader>" <esc>`>a"<esc>`<i"<esc>`<lv`>l
+inoremap jk <esc>
+
+nnoremap          <leader>d dd
+nnoremap <buffer> <leader>x dd
+
+
+"======================================
+" Abbreviations 
+"======================================
+"iabbrev adn and
+iabbrev @@ hslima@gmail.com
+
+"======================================
+" my Buffer
+"======================================
+"iunmap xxxxxx
+
+"======================================
+" my Autocommand
+"======================================
+
+augroup kmain
+  autocmd!
+  "autocmd VimEnter * :Vexplore
+  autocmd FileType python set autoindent
+  autocmd FileType python :iabbrev <buffer> iff if:<left>
+  autocmd FileType python :iabbrev <buffer> fnc return function () {<enter>}<Up><End><Left><Left><Left>
+augroup END
+
+
+
+
+
+
+
